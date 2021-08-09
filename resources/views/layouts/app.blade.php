@@ -175,11 +175,29 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="#" class="waves-effect"><i class="fa fa-users"></i><span> Employee </span><span
+                            <a href="#" class="waves-effect"><i class="fa fa-users"></i><span> Employees </span><span
                                     class="pull-right"><i class="md md-add"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="{{ route('employee.create') }}">Add Employee</a></li>
                                 <li><a href="{{ route('employee.index') }}">All Employees</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="fa fa-book"></i><span> suppliers </span><span
+                                    class="pull-right"><i class="md md-add"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ route('customer.create') }}">Add Customer</a></li>
+                                <li><a href="{{ route('customer.index') }}">All Customers</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="fa fa-shopping-cart"></i><span> Suppliers </span><span
+                                    class="pull-right"><i class="md md-add"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ route('supplier.create') }}">Add Supplier</a></li>
+                                <li><a href="{{ route('supplier.index') }}">All Suppliers</a></li>
                             </ul>
                         </li>
 
@@ -329,7 +347,7 @@
     <script>
         $(document).on("click", "#delete", function(e){
             e.preventDefault();
-            var id = $(this).data('id');
+            var dlt_url = $(this).data('url');
             swal({
                 title: "Are you sure to delete this?",
                 text: "Once Delete, Data will be deleted permanently!",
@@ -340,7 +358,7 @@
                 if(willDelete) {
                     $.ajax({
                         type: "DELETE",
-                        url:'{{url("employee/")}}/' +id,
+                        url: dlt_url,
                         data:{
                             "_token": "{{ csrf_token() }}",
                         },
@@ -353,79 +371,6 @@
                 }
             });
         });
-    </script>
-    {{-- <script>
-        $(document).on('click', '.button', function (e) {
-            e.preventDefault();
-            var id = $(this).data('id');
-            swal({
-                    title: "Are you sure!",
-                    type: "error",
-                    confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Yes!",
-                    showCancelButton: true,
-                },
-                function() {
-                    $.ajax({
-                        type: "POST",
-                        url: "{{url('/destroy')}}",
-                        data: {id:id},
-                        success: function (data) {
-                                    //
-                            }
-                    });
-            });
-        });
-    </script> --}}
-    <script type="application/javascript">
-
-        function deleteItem(e){
-
-            let id = e.getAttribute('data-id');
-
-            const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-            });
-
-            swalWithBootstrapButtons.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'No, cancel!',
-                reverseButtons: true
-            }).then((result) => {
-                if (result.value) {
-                    if (result.isConfirmed){
-
-                        $.ajax({
-                            type:'DELETE',
-                            url:'{{url("/user/delete")}}/' +id,
-                            data:{
-                                "_token": "{{ csrf_token() }}",
-                            }
-                        });
-
-                    }
-
-                } else if (
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    swalWithBootstrapButtons.fire(
-                        'Cancelled',
-                        'Your imaginary file is safe :)',
-                        'error'
-                    );
-                }
-            });
-
-        }
-
     </script>
 
 </body>

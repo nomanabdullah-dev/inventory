@@ -9,10 +9,10 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Employee</h4>
+                    <h4 class="pull-left page-title">Supplier</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                        <li><a href="{{ route('employee.index') }}">Employee</a></li>
+                        <li><a href="{{ route('supplier.index') }}">Supplier</a></li>
                         <li class="active">Create</li>
                     </ol>
                 </div>
@@ -24,16 +24,17 @@
                 <div class="col-md-8">
                     <div class="panel panel-primary">
                         <div class="panel-heading d-flex justify-content-between align-items-center">
-                            <h3 style="display: inline" class="panel-title">Add Employee</h3>
-                            <a href="{{ route('employee.index') }}" class="btn btn-warning" style="float: right">Back</a>
+                            <h3 style="display: inline" class="panel-title">Update Supplier</h3>
+                            <a href="{{ route('supplier.index') }}" class="btn btn-warning" style="float: right">Back</a>
                         </div>
                         <div class="panel-body">
-                            <form  class="form-horizontal" role="form" action="{{ route('employee.store') }}" method="POST" enctype="multipart/form-data">
+                            <form  class="form-horizontal" role="form" action="{{ route('supplier.update', $supplier->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="form-group">
                                     <label for="name" class="col-sm-3 control-label">Name</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="col-sm-3 form-control" name="name" placeholder="Enter name">
+                                        <input type="text" class="col-sm-3 form-control" name="name" value="{{ $supplier->name }}" placeholder="Enter name">
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong style="color: red">{{ $message }}</strong>
@@ -44,7 +45,7 @@
                                 <div class="form-group">
                                     <label for="email" class="col-sm-3 control-label">Email Address</label>
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" name="email" placeholder="Enter email">
+                                        <input type="email" class="form-control" name="email" value="{{ $supplier->email }}" placeholder="Enter email">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong style="color: red">{{ $message }}</strong>
@@ -55,7 +56,7 @@
                                 <div class="form-group">
                                     <label for="phone" class="col-sm-3 control-label">Phone Number</label>
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" name="phone" placeholder="Enter phone">
+                                        <input type="number" class="form-control" name="phone" value="{{ $supplier->phone }}" placeholder="Enter phone">
                                         @error('phone')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong style="color: red">{{ $message }}</strong>
@@ -66,7 +67,7 @@
                                 <div class="form-group">
                                     <label for="address" class="col-sm-3 control-label">Address</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="address" placeholder="Enter address">
+                                        <input type="text" class="form-control" name="address" value="{{ $supplier->address }}" placeholder="Enter address">
                                         @error('address')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong style="color: red">{{ $message }}</strong>
@@ -75,10 +76,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="experience" class="col-sm-3 control-label">Experience</label>
+                                    <label for="shop_name" class="col-sm-3 control-label">Shop Name</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="experience" placeholder="Enter experience">
-                                        @error('experience')
+                                        <input type="text" class="form-control" name="shop_name" value="{{ $supplier->shop_name }}" placeholder="Enter shop name">
+                                        @error('shop_name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong style="color: red">{{ $message }}</strong>
                                             </span>
@@ -86,10 +87,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nid" class="col-sm-3 control-label">NID</label>
+                                    <label for="bank_name" class="col-sm-3 control-label">Bank Name</label>
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" name="nid" placeholder="Enter nid">
-                                        @error('nid')
+                                        <input type="text" class="form-control" name="bank_name" value="{{ $supplier->bank_name }}" placeholder="Enter bank name">
+                                        @error('bank_name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong style="color: red">{{ $message }}</strong>
                                             </span>
@@ -97,10 +98,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="salary" class="col-sm-3 control-label">Salary</label>
+                                    <label for="bank_branch" class="col-sm-3 control-label">Bank Branch</label>
                                     <div class="col-sm-9">
-                                        <input type="number" class="form-control" name="salary" placeholder="Enter salary">
-                                        @error('salary')
+                                        <input type="text" class="form-control" name="bank_branch" value="{{ $supplier->bank_branch }}" placeholder="Enter bank branch">
+                                        @error('bank_branch')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong style="color: red">{{ $message }}</strong>
                                             </span>
@@ -108,10 +109,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="vacation" class="col-sm-3 control-label">Vacation</label>
+                                    <label for="account_holder" class="col-sm-3 control-label">Account Holder</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="vacation" placeholder="Enter vacation">
-                                        @error('vacation')
+                                        <input type="text" class="form-control" name="account_holder" value="{{ $supplier->account_holder }}" placeholder="Enter account holder">
+                                        @error('account_holder')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong style="color: red">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="account_number" class="col-sm-3 control-label">Account Number</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="account_number" value="{{ $supplier->account_number }}" placeholder="Enter account_number">
+                                        @error('account number')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong style="color: red">{{ $message }}</strong>
                                             </span>
@@ -121,7 +133,7 @@
                                 <div class="form-group">
                                     <label for="city" class="col-sm-3 control-label">City</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="city" placeholder="Enter city">
+                                        <input type="text" class="form-control" name="city" value="{{ $supplier->city }}" placeholder="Enter city">
                                         @error('city')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong style="color: red">{{ $message }}</strong>
@@ -130,9 +142,24 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="photo" class="col-sm-3 control-label">Photo</label>
+                                    <label for="city" class="col-sm-3 control-label">Type</label>
                                     <div class="col-sm-9">
-                                        <img src="#" id="image">
+                                        <select name="type" id="" class="form-control">
+                                            <option {{ $supplier->type == "Distributor" ? 'selected':'' }} value="Distributor">Distributor</option>
+                                            <option {{ $supplier->type == "WholeSeller" ? 'selected':'' }} value="WholeSeller">Whole Seller</option>
+                                            <option {{ $supplier->type == "Broker" ? 'selected':'' }} value="Broker">Broker</option>
+                                        </select>
+                                        @error('type')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong style="color: red">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="photo" class="col-sm-3 control-label">New Photo</label>
+                                    <div class="col-sm-9">
+                                        <img src="#" id="image" >
                                         <input type="file" class="form-control-file upload" name="photo" accept="image/*" onchange="readURL(this)">
                                         @error('photo')
                                             <span class="invalid-feedback" role="alert">
@@ -141,14 +168,18 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <img src="{{ asset($supplier->photo) }}" width="100px" name="old_photo">
+                                    </div>
+                                </div>
 
                                 <div class="form-group m-b-0">
                                     <div class="col-sm-offset-3 col-sm-9">
-                                      <button type="submit" class="btn btn-purple waves-effect waves-light" style="margin-top: 10px">Submit</button>
+                                      <button type="submit" class="btn btn-purple waves-effect waves-light" style="margin-top: 10px">Update</button>
                                     </div>
                                 </div>
                             </form>
-
                         </div><!-- panel-body -->
                     </div> <!-- panel -->
                 </div>

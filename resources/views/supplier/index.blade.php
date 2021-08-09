@@ -9,10 +9,10 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Employees !</h4>
+                    <h4 class="pull-left page-title">Supplier</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                        <li class="active">All Employees</li>
+                        <li class="active">All Suppliers</li>
                     </ol>
                 </div>
             </div>
@@ -22,8 +22,8 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading d-flex justify-content-between align-items-center">
-                            <h3 class="panel-title" style="display: inline">All Employees</h3>
-                            <a href="{{ route('employee.create') }}" class="btn btn-warning" style="float: right">Add Employee</a>
+                            <h3 class="panel-title" style="display: inline">All Suppliers</h3>
+                            <a href="{{ route('supplier.create') }}" class="btn btn-warning" style="float: right">Add Supplier</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -73,7 +73,12 @@
                                                             <th class="sorting" tabindex="0" aria-controls="datatable"
                                                                 rowspan="1" colspan="1" style="width: 89px;"
                                                                 aria-label="Salary: activate to sort column ascending">
-                                                                Salary
+                                                                City
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                                rowspan="1" colspan="1" style="width: 89px;"
+                                                                aria-label="Salary: activate to sort column ascending">
+                                                                Type
                                                             </th>
                                                             <th class="sorting" tabindex="0" aria-controls="datatable"
                                                                 rowspan="1" colspan="1" style="width: 89px;"
@@ -85,17 +90,18 @@
 
 
                                                     <tbody>
-                                                        @foreach ($employees as $employee)
+                                                        @foreach ($suppliers as $supplier)
                                                             <tr role="row" class="odd">
-                                                                <td class="sorting_1">{{ $employee->name }}</td>
-                                                                <td><img src="{{ $employee->photo }}" width="100px"  height="100px"></td>
-                                                                <td>{{ $employee->phone }}</td>
-                                                                <td>{{ $employee->salary }}</td>
+                                                                <td class="sorting_1">{{ $supplier->name }}</td>
+                                                                <td><img src="{{ $supplier->photo }}" width="100px"  height="100px"></td>
+                                                                <td>{{ $supplier->phone }}</td>
+                                                                <td>{{ $supplier->city }}</td>
+                                                                <td>{{ $supplier->type }}</td>
                                                                 <td>
-                                                                    <a href="{{ route('employee.show', $employee->id) }}" class="btn btn-primary"><i class="fa fa-eye   "></i></a>
-                                                                    <a href="{{ route('employee.edit', $employee->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                                                    <a href="{{ route('supplier.show', $supplier->id) }}" class="btn btn-primary"><i class="fa fa-eye   "></i></a>
+                                                                    <a href="{{ route('supplier.edit', $supplier->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
 
-                                                                    <button onclick="deleteItem(this)" data-url="{{ route('employee.destroy', $employee->id) }}" id="delete" class="btn btn-danger"><i class="fa fa-trash"></i>
+                                                                    <button onclick="deleteItem(this)" data-url="{{ route('supplier.destroy', $supplier->id) }}" id="delete" class="btn btn-danger"><i class="fa fa-trash"></i>
                                                                     </button>
 
                                                                 </td>

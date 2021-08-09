@@ -9,10 +9,10 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">Employee !</h4>
+                    <h4 class="pull-left page-title">Customer !</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                        <li><a href="{{ route('employee.index') }}">Employee</a></li>
+                        <li><a href="{{ route('customer.index') }}">Customers</a></li>
                         <li class="active">Show</li>
                     </ol>
                 </div>
@@ -22,9 +22,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-primary">
-                        <div class="panel-heading  d-flex justify-content-between align-items-center">
-                            <h3 style="display: inline" class="panel-title">Employee Details</h3>
-                            <a href="{{ route('employee.index') }}" class="btn btn-warning" style="float: right">Back</a>
+                        <div class="panel-heading d-flex justify-content-between align-items-center">
+                            <h3 style="display: inline" class="panel-title">Customer Details</h3>
+                            <a href="{{ route('customer.index') }}" class="btn btn-warning" style="float: right">Back</a>
                         </div>
                         <div class="panel-body">
                             <table class="table table-bordered table-striped">
@@ -33,43 +33,47 @@
                                 <tbody>
                                     <tr>
                                         <th>Name</th>
-                                        <td>{{ $employee->name }}</td>
+                                        <td>{{ $customer->name }}</td>
                                     </tr>
                                     <tr>
                                         <th>Email</th>
-                                        <td>{{ $employee->name }}</td>
+                                        <td>{{ $customer->email }}</td>
                                     </tr>
                                     <tr>
                                         <th>Phone</th>
-                                        <td>{{ $employee->phone }}</td>
+                                        <td>{{ $customer->phone }}</td>
                                     </tr>
                                     <tr>
                                         <th>Address</th>
-                                        <td colspan="4">{{ $employee->address }}</td>
+                                        <td colspan="4">{{ $customer->address }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Experience</th>
-                                        <td>{{ $employee->experience }}</td>
+                                        <th>Shop Name</th>
+                                        <td>{{ $customer->shop_name }}</td>
                                     </tr>
                                     <tr>
-                                        <th>NID Number</th>
-                                        <td colspan="4">{{ $employee->nid }}</td>
+                                        <th>Bank Name</th>
+                                        <td colspan="4">{{ $customer->bank_name }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Salary</th>
-                                        <td colspan="1">{{ $employee->salary }}</td>
+                                        <th>Bank Branch</th>
+                                        <td colspan="1">{{ $customer->bank_branch }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Vacation</th>
-                                        <td>{{ $employee->vacation }}</td>
+                                        <th>Account Holder</th>
+                                        <td>{{ $customer->account_holder }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Account Number</th>
+                                        <td>{{ $customer->account_number }}</td>
                                     </tr>
                                     <tr>
                                         <th>City</th>
-                                        <td>{{ $employee->city }}</td>
+                                        <td>{{ $customer->city }}</td>
                                     </tr>
                                     <tr>
                                         <th>Photo</th>
-                                        <td colspan="4"><img src="{{ asset($employee->photo) }}" width="100px"></td>
+                                        <td colspan="4"><img src="{{ asset($customer->photo) }}" width="100px"></td>
                                     </tr>
                                 </tbody>
                             </table>

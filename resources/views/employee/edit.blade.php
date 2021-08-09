@@ -22,10 +22,10 @@
                 {{-- <div class="col-md-2"></div> --}}
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="panel panel-default">
+                    <div class="panel panel-primary">
                         <div class="panel-heading d-flex justify-content-between align-items-center">
                             <h3 style="display: inline" class="panel-title">Update Employee</h3>
-                            <a href="{{ route('employee.index') }}" class="btn btn-success" style="float: right">Back</a>
+                            <a href="{{ route('employee.index') }}" class="btn btn-warning" style="float: right">Back</a>
                         </div>
                         <div class="panel-body">
                             <form  class="form-horizontal" role="form" action="{{ route('employee.update', $employee->id) }}" method="POST" enctype="multipart/form-data">
