@@ -88,7 +88,7 @@
                                                         @foreach ($employees as $employee)
                                                             <tr role="row" class="odd">
                                                                 <td class="sorting_1">{{ $employee->name }}</td>
-                                                                <td><img src="{{ $employee->photo }}" width="100px"  height="100px"></td>
+                                                                <td><img src="{{ url($employee->photo) }}" width="100px"  height="100px"></td>
                                                                 <td>{{ $employee->phone }}</td>
                                                                 <td>{{ $employee->salary }}</td>
                                                                 <td>

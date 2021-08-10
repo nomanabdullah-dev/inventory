@@ -169,9 +169,10 @@
                 <div id="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="{{ route('dashboard') }}" class="waves-effect active"><i class="md md-home"></i><span>
-                                    Dashboard
-                                </span></a>
+                            <a href="{{ route('dashboard') }}" class="waves-effect active"><i class="md md-home"></i><span> Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-plus"></i><span>POS</span></a>
                         </li>
 
                         <li class="has_sub">
@@ -184,7 +185,7 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="#" class="waves-effect"><i class="fa fa-book"></i><span> suppliers </span><span
+                            <a href="#" class="waves-effect"><i class="fa fa-book"></i><span> Customers </span><span
                                     class="pull-right"><i class="md md-add"></i></span></a>
                             <ul class="list-unstyled">
                                 <li><a href="{{ route('customer.create') }}">Add Customer</a></li>
@@ -210,42 +211,61 @@
                             </ul>
                         </li>
 
-
-                        <li>
-                            <a href="calendar.html" class="waves-effect"><i class="md md-event"></i><span> Calendar
-                                </span></a>
-                        </li>
-
                         <li class="has_sub">
-                            <a href="#" class="waves-effect"><i class="md md-palette"></i> <span> Elements </span> <span
+                            <a href="#" class="waves-effect"><i class="fa fa-sitemap"></i><span> Category </span><span
                                     class="pull-right"><i class="md md-add"></i></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="typography.html">Typography</a></li>
-                                <li><a href="buttons.html">Buttons</a></li>
-                                <li><a href="panels.html">Panels</a></li>
-                                <li><a href="checkbox-radio.html">Checkboxs-Radios</a></li>
-                                <li><a href="tabs-accordions.html">Tabs &amp; Accordions</a></li>
-                                <li><a href="modals.html">Modals</a></li>
-                                <li><a href="bootstrap-ui.html">BS Elements</a></li>
-                                <li><a href="progressbars.html">Progress Bars</a></li>
-                                <li><a href="notification.html">Notification</a></li>
-                                <li><a href="sweet-alert.html">Sweet-Alert</a></li>
+                                <li><a href="{{ route('category.create') }}">Add Category</a></li>
+                                <li><a href="{{ route('category.index') }}">All Category</a></li>
                             </ul>
                         </li>
 
                         <li class="has_sub">
-                            <a href="#" class="waves-effect"><i class="md md-invert-colors-on"></i><span> Components
-                                </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                            <a href="#" class="waves-effect"><i class="fa fa-briefcase"></i><span> Product </span><span
+                                    class="pull-right"><i class="md md-add"></i></span></a>
                             <ul class="list-unstyled">
-                                <li><a href="grid.html">Grid</a></li>
-                                <li><a href="portlets.html">Portlets</a></li>
-                                <li><a href="widgets.html">Widgets</a></li>
-                                <li><a href="nestable-list.html">Nesteble</a></li>
-                                <li><a href="ui-sliders.html">Sliders </a></li>
-                                <li><a href="gallery.html">Gallery </a></li>
-                                <li><a href="pricing.html">Pricing Table </a></li>
+                                <li><a href="{{ route('product.create') }}">Add Product</a></li>
+                                <li><a href="{{ route('product.index') }}">All Product</a></li>
                             </ul>
                         </li>
+
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="fa fa-usd"></i><span> Expense </span><span
+                                    class="pull-right"><i class="md md-add"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ route('expense.create') }}">Add Expense</a></li>
+                                <li><a href="{{ route('todayExpense') }}">Today's Expenses</a></li>
+                                <li><a href="{{ route('monthlyExpense') }}">Monthly Expenses</a></li>
+                                <li><a href="{{ route('yearlyExpense') }}">Yearly Expenses</a></li>
+                                <li><a href="{{ route('expense.index') }}">All Expense</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="fa fa-book"></i><span> Sales Report </span><span
+                                    class="pull-right"><i class="md md-add"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ route('expense.create') }}">Add Expense</a></li>
+                                <li><a href="{{ route('todayExpense') }}">Today's Expenses</a></li>
+                                <li><a href="{{ route('monthlyExpense') }}">Monthly Expenses</a></li>
+                                <li><a href="{{ route('yearlyExpense') }}">Yearly Expenses</a></li>
+                                <li><a href="{{ route('expense.index') }}">All Expense</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="fa fa-list-ol"></i><span> Attendance </span><span
+                                    class="pull-right"><i class="md md-add"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ route('expense.create') }}">Add Expense</a></li>
+                                <li><a href="{{ route('todayExpense') }}">Today's Expenses</a></li>
+                                <li><a href="{{ route('monthlyExpense') }}">Monthly Expenses</a></li>
+                                <li><a href="{{ route('yearlyExpense') }}">Yearly Expenses</a></li>
+                                <li><a href="{{ route('expense.index') }}">All Expense</a></li>
+                            </ul>
+                        </li>
+
+
                     </ul>
                     <div class="clearfix"></div>
                 </div>

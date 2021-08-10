@@ -63,6 +63,16 @@
                                                             <th class="sorting" tabindex="0" aria-controls="datatable"
                                                                 rowspan="1" colspan="1" style="width: 262px;"
                                                                 aria-label="Position: activate to sort column ascending">
+                                                                Photo
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                                rowspan="1" colspan="1" style="width: 262px;"
+                                                                aria-label="Position: activate to sort column ascending">
+                                                                Salary
+                                                            </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                                rowspan="1" colspan="1" style="width: 262px;"
+                                                                aria-label="Position: activate to sort column ascending">
                                                                 Month
                                                             </th>
                                                             <th class="sorting" tabindex="0" aria-controls="datatable"
@@ -87,6 +97,8 @@
                                                         @foreach ($adsalaries as $adsalary)
                                                             <tr role="row" class="odd">
                                                                 <td class="sorting_1">{{ $adsalary->employee->name }}</td>
+                                                                <td><img src="{{ url($adsalary->employee->photo) }}" width="90px" srcset=""></td>
+                                                                <td>{{ $adsalary->employee->salary }}</td>
                                                                 <td>{{ $adsalary->month }}</td>
                                                                 <td>{{ $adsalary->year }}</td>
                                                                 <td>{{ $adsalary->advanced_salary }}</td>

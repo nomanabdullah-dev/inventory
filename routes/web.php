@@ -5,9 +5,11 @@ use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\AdvancedSalaryController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -22,4 +24,11 @@ Route::middleware('auth')->group(function(){
     Route::resource('customer', CustomerController::class);
     Route::resource('supplier', SupplierController::class);
     Route::resource('advancedsalary', AdvancedSalaryController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('product', ProductController::class);
+    Route::resource('expense', ExpenseController::class);
+    Route::get('todayExpense', [ExpenseController::class, 'todayExpense'])->name('todayExpense');
+    Route::get('monthlyExpense', [ExpenseController::class, 'monthlyExpense'])->name('monthlyExpense');
+    Route::get('monthwiseExpense/{month}', [ExpenseController::class, 'monthwiseExpense'])->name('monthwiseExpense');
+    Route::get('yearlyExpense', [ExpenseController::class, 'yearlyExpense'])->name('yearlyExpense');
 });

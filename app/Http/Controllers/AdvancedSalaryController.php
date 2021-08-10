@@ -23,24 +23,37 @@ class AdvancedSalaryController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-        'employee_id'       => 'required',
-        'month'             => 'required',
-        'year'              => 'required',
-        'advanced_salary'   => 'required',
-        ]);
-        $data=array();
-        $data['employee_id']    = $request->employee_id;
-        $data['month']          = $request->month;
-        $data['year' ]          = $request->year;
-        $data['advanced_salary']= $request->advanced_salary;
+        // $this->validate($request, [
+        // 'employee_id'       => 'required',
+        // 'month'             => 'required',
+        // 'year'              => 'required',
+        // 'advanced_salary'   => 'required',
+        // ]);
+        $emp_id             = $request->employee_id;
+        $month              = $request->month;
+        $alreadypaid        = AdvancedSalary::where('employee_id', $emp_id)
+                                            ->where('month', $month)
+                                            ->first();
+        if($alreadypaid === NULL){
+            $data=array();
+            $data['employee_id']    = $request->employee_id;
+            $data['month']          = $request->month;
+            $data['year' ]          = $request->year;
+            $data['advanced_salary']= $request->advanced_salary;
 
-        AdvancedSalary::create($data);
-        $notification  = [
-            'message'=>'Advanced Salary Created Successfully!',
-            'alert-type'=> 'success'
-        ];
-        return redirect()->route('advancedsalary.index')->with($notification);
+            AdvancedSalary::create($data);
+            $notification  = [
+                'message'=>'Advanced Salary Created Successfully!',
+                'alert-type'=> 'success'
+            ];
+            return redirect()->route('advancedsalary.index')->with($notification);
+        }else{
+            $notification  = [
+                'message'=>'Oops! Already paid for this month.',
+                'alert-type'=> 'error'
+            ];
+            return redirect()->back()->with($notification);
+        }
     }
 
     public function show(AdvancedSalary $salary)
