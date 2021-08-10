@@ -201,6 +201,16 @@
                             </ul>
                         </li>
 
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="fa fa-money"></i><span> Advanced Salary </span><span
+                                    class="pull-right"><i class="md md-add"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ route('advancedsalary.create') }}">Add Salary</a></li>
+                                <li><a href="{{ route('advancedsalary.index') }}">All Salary</a></li>
+                            </ul>
+                        </li>
+
+
                         <li>
                             <a href="calendar.html" class="waves-effect"><i class="md md-event"></i><span> Calendar
                                 </span></a>
