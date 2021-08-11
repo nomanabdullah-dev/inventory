@@ -26,4 +26,8 @@ class Employee extends Model
     public function adsalaries(){
         return $this->hasMany(AdvancedSalary::class);
     }
+
+    public function attendance(){
+        return $this->hasMany(Attendance::class);
+    }
 }

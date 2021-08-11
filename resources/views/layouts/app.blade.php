@@ -257,6 +257,15 @@
                             <a href="#" class="waves-effect"><i class="fa fa-list-ol"></i><span> Attendance </span><span
                                     class="pull-right"><i class="md md-add"></i></span></a>
                             <ul class="list-unstyled">
+                                <li><a href="{{ route('attendance.create') }}">Take Attendance</a></li>
+                                <li><a href="{{ route('attendance.index') }}">All Attendances</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has_sub">
+                            <a href="#" class="waves-effect"><i class="fa fa-gear"></i><span> Settings </span><span
+                                    class="pull-right"><i class="md md-add"></i></span></a>
+                            <ul class="list-unstyled">
                                 <li><a href="{{ route('expense.create') }}">Add Expense</a></li>
                                 <li><a href="{{ route('todayExpense') }}">Today's Expenses</a></li>
                                 <li><a href="{{ route('monthlyExpense') }}">Monthly Expenses</a></li>

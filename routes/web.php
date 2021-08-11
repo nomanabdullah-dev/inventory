@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\AdvancedSalaryController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ProductController;
@@ -31,4 +32,5 @@ Route::middleware('auth')->group(function(){
     Route::get('monthlyExpense', [ExpenseController::class, 'monthlyExpense'])->name('monthlyExpense');
     Route::get('monthwiseExpense/{month}', [ExpenseController::class, 'monthwiseExpense'])->name('monthwiseExpense');
     Route::get('yearlyExpense', [ExpenseController::class, 'yearlyExpense'])->name('yearlyExpense');
+    Route::resource('attendance', AttendanceController::class);
 });

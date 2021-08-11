@@ -27,7 +27,7 @@ class CustomerFactory extends Factory
             'phone'         =>$this->faker->phoneNumber(),
             'address'       =>$this->faker->address(),
             'shop_name'     =>$this->faker->name(),
-            'photo'         =>$this->faker->image('public/images/employee',640,480, null, false),
+            'photo'         =>$this->faker->name(),
             'bank_name'     =>$this->faker->name(),
             'bank_branch'   =>$this->faker->name(),
             'account_holder'=>$this->faker->name(),

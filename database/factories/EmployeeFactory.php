@@ -27,7 +27,7 @@ class EmployeeFactory extends Factory
             'phone'     => $this->faker->phoneNumber(),
             'address'   => $this->faker->address(),
             'experience'=> $this->faker->text(),
-            'photo'     => $this->faker->image('public/images/employee',640,480),
+            'photo'     => $this->faker->name(),
             'nid'       => $this->faker->numberBetween(10,1000),
             'salary'    =>$this->faker->numberBetween(10,1000),
             'vacation'  => $this->faker->text(),

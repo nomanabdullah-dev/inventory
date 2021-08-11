@@ -9,10 +9,10 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="pull-left page-title">{{ $month }}'s Expense</h4>
+                    <h4 class="pull-left page-title">Attendance</h4>
                     <ol class="breadcrumb pull-right">
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                        <li class="active">{{ $month }}'s Expense</li>
+                        <li class="active">All Attendance</li>
                     </ol>
                 </div>
             </div>
@@ -20,25 +20,10 @@
             <!-- Start Widget -->
             <div class="row">
                 <div class="col-md-12">
-                    <div>
-                        <a href="{{ route('monthwiseExpense', 'January') }}" class="btn btn-sm btn-primary">January</a>
-                        <a href="{{ route('monthwiseExpense', 'February') }}" class="btn btn-sm btn-info">February</a>
-                        <a href="{{ route('monthwiseExpense', 'March') }}" class="btn btn-sm btn-danger">March</a>
-                        <a href="{{ route('monthwiseExpense', 'April') }}" class="btn btn-sm btn-success">April</a>
-                        <a href="{{ route('monthwiseExpense', 'May') }}" class="btn btn-sm btn-warning">May</a>
-                        <a href="{{ route('monthwiseExpense', 'June') }}" class="btn btn-sm btn-primary">June</a>
-                        <a href="{{ route('monthwiseExpense', 'July') }}" class="btn btn-sm btn-danger">July</a>
-                        <a href="{{ route('monthwiseExpense', 'August') }}" class="btn btn-sm btn-success">August</a>
-                        <a href="{{ route('monthwiseExpense', 'September') }}" class="btn btn-sm btn-warning">September</a>
-                        <a href="{{ route('monthwiseExpense', 'October') }}" class="btn btn-sm btn-success">October</a>
-                        <a href="{{ route('monthwiseExpense', 'November') }}" class="btn btn-sm btn-danger">November</a>
-                        <a href="{{ route('monthwiseExpense', 'December') }}" class="btn btn-sm btn-info">December</a>
-                    </div>
                     <div class="panel panel-primary">
                         <div class="panel-heading d-flex justify-content-between align-items-center">
-                            <h3 class="panel-title" style="display: inline">{{ $month }}'s Expenses</h3>
-                            <h4 style="display: inline; margin-left:230px" class="text-white">{{ $month }}'s Total Expenses: {{ $months_Sum }}</h4>
-                            <a href="{{ route('expense.create') }}" class="btn btn-warning" style="float: right">Add New</a>
+                            <h3 class="panel-title" style="display: inline">All Attendances</h3>
+                            <a href="{{ route('attendance.create') }}" class="btn btn-warning" style="float: right">Add Attendance</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -73,37 +58,37 @@
                                                                 aria-controls="datatable" rowspan="1" colspan="1"
                                                                 style="width: 155px;" aria-sort="ascending"
                                                                 aria-label="Name: activate to sort column descending">
-                                                                Title
+                                                                SL
                                                             </th>
                                                             <th class="sorting_asc" tabindex="0"
                                                                 aria-controls="datatable" rowspan="1" colspan="1"
                                                                 style="width: 155px;" aria-sort="ascending"
                                                                 aria-label="Name: activate to sort column descending">
-                                                                Details
+                                                                Name
                                                             </th>
-                                                            <th class="sorting_asc" tabindex="0"
-                                                                aria-controls="datatable" rowspan="1" colspan="1"
-                                                                style="width: 155px;" aria-sort="ascending"
-                                                                aria-label="Name: activate to sort column descending">
-                                                                Date
-                                                            </th>
-                                                            <th class="sorting_asc" tabindex="0"
-                                                                aria-controls="datatable" rowspan="1" colspan="1"
-                                                                style="width: 155px;" aria-sort="ascending"
-                                                                aria-label="Name: activate to sort column descending">
-                                                                Amount
+                                                            <th class="sorting" tabindex="0" aria-controls="datatable"
+                                                                rowspan="1" colspan="1" style="width: 89px;"
+                                                                aria-label="Salary: activate to sort column ascending">
+                                                                Action
                                                             </th>
                                                         </tr>
                                                     </thead>
 
 
                                                     <tbody>
-                                                        @foreach ($months as $month)
+                                                        <?php $sl=1;?>
+                                                        @foreach ($attendances as $attendance)
                                                             <tr role="row" class="odd">
-                                                                <td class="sorting_1">{{ $month->title }}</td>
-                                                                <td>{{ $month->details }}</td>
-                                                                <td>{{ $month->date }}</td>
-                                                                <td>{{ $month->amount }}</td>
+                                                                <td>{{ $sl++ }}</td>
+                                                                <td class="sorting_1">{{ $attendance->att_date }}</td>
+
+                                                                <td>
+
+                                                                    <a href="{{ route('attendance.edit', $attendance->att_edit) }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+
+                                                                    {{-- <button onclick="deleteItem(this)" data-url="{{ route('attendance.destroy', $attendance->id) }}" id="delete" class="btn btn-danger"><i class="fa fa-trash"></i>
+                                                                    </button> --}}
+
                                                                 </td>
                                                             </tr>
                                                         @endforeach
