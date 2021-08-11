@@ -11,6 +11,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SettingController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -33,4 +34,5 @@ Route::middleware('auth')->group(function(){
     Route::get('monthwiseExpense/{month}', [ExpenseController::class, 'monthwiseExpense'])->name('monthwiseExpense');
     Route::get('yearlyExpense', [ExpenseController::class, 'yearlyExpense'])->name('yearlyExpense');
     Route::resource('attendance', AttendanceController::class);
+    Route::resource('setting', SettingController::class);
 });

@@ -263,15 +263,8 @@
                         </li>
 
                         <li class="has_sub">
-                            <a href="#" class="waves-effect"><i class="fa fa-gear"></i><span> Settings </span><span
+                            <a href="{{ route('setting.index') }}" class="waves-effect"><i class="fa fa-gear"></i><span> Settings </span><span
                                     class="pull-right"><i class="md md-add"></i></span></a>
-                            <ul class="list-unstyled">
-                                <li><a href="{{ route('expense.create') }}">Add Expense</a></li>
-                                <li><a href="{{ route('todayExpense') }}">Today's Expenses</a></li>
-                                <li><a href="{{ route('monthlyExpense') }}">Monthly Expenses</a></li>
-                                <li><a href="{{ route('yearlyExpense') }}">Yearly Expenses</a></li>
-                                <li><a href="{{ route('expense.index') }}">All Expense</a></li>
-                            </ul>
                         </li>
 
 
