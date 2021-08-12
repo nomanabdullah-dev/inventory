@@ -8,11 +8,13 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\AdvancedSalaryController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
+use Maatwebsite\Excel\Row;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -42,4 +44,14 @@ Route::middleware('auth')->group(function(){
     Route::get('product-export-import', [ProductController::class,'productExportImport'])->name('product.export.import');
     Route::get('product-export', [ProductController::class,'productExport'])->name('productexport');
     Route::post('product-import', [ProductController::class,'productImport'])->name('productimport');
+
+    //cart route
+    Route::post('add-cart', [CartController::class, 'index'])->name('add.cart');
+    Route::post('cart-update/{rowId}', [CartController::class, 'update'])->name('cart.update');
+
+    //invoice route
+    Route::get('cart-remove/{rowId}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::post('create-invoice', [CartController::class, 'createInvoice'])->name('create.invoice');
+    Route::post('final-invoice', [CartController::class, 'finalInvoice'])->name('final.invoice');
+
 });

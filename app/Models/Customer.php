@@ -22,4 +22,8 @@ class Customer extends Model
         'account_number',
         'city',
     ];
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }
