@@ -10,6 +10,7 @@ use App\Http\Controllers\AdvancedSalaryController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\PosController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
 
@@ -35,4 +36,10 @@ Route::middleware('auth')->group(function(){
     Route::get('yearlyExpense', [ExpenseController::class, 'yearlyExpense'])->name('yearlyExpense');
     Route::resource('attendance', AttendanceController::class);
     Route::resource('setting', SettingController::class);
+    Route::resource('pos', PosController::class);
+
+    //Product Import and Export Route
+    Route::get('product-export-import', [ProductController::class,'productExportImport'])->name('product.export.import');
+    Route::get('product-export', [ProductController::class,'productExport'])->name('productexport');
+    Route::post('product-import', [ProductController::class,'productImport'])->name('productimport');
 });

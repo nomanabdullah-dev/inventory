@@ -25,7 +25,8 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading d-flex justify-content-between align-items-center">
                             <h3 style="display: inline" class="panel-title">Add Product</h3>
-                            <a href="{{ route('product.index') }}" class="btn btn-warning" style="float: right">Back</a>
+                            <a href="{{ route('product.index') }}" class="btn btn-warning" style="float: right; margin-left: 50px">Back</a>
+                            <a href="{{ route('product.export.import') }}" class="btn btn-danger" style="float: right">Import Product</a>
                         </div>
                         <div class="panel-body">
                             <form class="form-horizontal" role="form" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">

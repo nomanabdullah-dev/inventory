@@ -50,7 +50,7 @@ class CustomerController extends Controller
                     'message'=>'Customer Created Successfully!',
                     'alert-type'=> 'success'
                 ];
-                return redirect()->route('customer.index')->with($notification);
+                return redirect()->back()->with($notification);
             }
         }else {
             Customer::create($data);
@@ -58,7 +58,7 @@ class CustomerController extends Controller
                 'message'=>'Customer Created Successfully!',
                 'alert-type'=> 'success'
             ];
-            return redirect()->route('customer.index')->with($notification);
+            return redirect()->back()->with($notification);
         }
 
     }

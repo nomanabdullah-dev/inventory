@@ -6,6 +6,9 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use App\Exports\ProductsExport;
+use App\Imports\ProductsImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -158,4 +161,31 @@ class ProductController extends Controller
             return redirect()->route('product.index')->with($notification);
         }
     }
+
+    // Product Export Import
+    public function productExportImport(){
+        return view('product.export_import.index');
+    }
+
+    public function productExport(){
+        return Excel::download(new ProductsExport, 'products.xlsx');
+    }
+
+    public function productImport(Request $request){
+        $imported = Excel::import(new ProductsImport, $request->file('import_file'));
+        if($imported) {
+            $notification  = [
+            'message'=>'Product Imported Successfully!',
+            'alert-type'=> 'success'
+            ];
+            return redirect()->route('product.index')->with($notification);
+        }else {
+            $notification  = [
+                'message'=>'Something goes wrong!',
+                'alert-type'=> 'error'
+            ];
+            return redirect()->route('product.export.import')->with($notification);
+        }
+    }
+
 }

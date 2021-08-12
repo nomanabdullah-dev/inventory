@@ -172,7 +172,7 @@
                             <a href="{{ route('dashboard') }}" class="waves-effect active"><i class="md md-home"></i><span> Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="{{ route('dashboard') }}" class="waves-effect"><i class="fa fa-plus"></i><span>POS</span></a>
+                            <a href="{{ route('pos.index') }}" class="waves-effect"><i class="fa fa-plus"></i><span>POS</span></a>
                         </li>
 
                         <li class="has_sub">
@@ -226,6 +226,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="{{ route('product.create') }}">Add Product</a></li>
                                 <li><a href="{{ route('product.index') }}">All Product</a></li>
+                                <li><a href="{{ route('product.export.import') }}">Product Export Import</a></li>
                             </ul>
                         </li>
 
