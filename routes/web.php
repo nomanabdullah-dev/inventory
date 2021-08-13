@@ -54,4 +54,11 @@ Route::middleware('auth')->group(function(){
     Route::post('create-invoice', [CartController::class, 'createInvoice'])->name('create.invoice');
     Route::post('final-invoice', [CartController::class, 'finalInvoice'])->name('final.invoice');
 
+    //order route
+    Route::get('pending-order', [PosController::class, 'pendingOrder'])->name('pending.order');
+    Route::get('success-order', [PosController::class, 'successOrder'])->name('success.order');
+    Route::get('view-order-status/{id}', [PosController::class, 'orderStatus'])->name('view.order.status');
+    Route::get('order-destroy/{id}', [PosController::class, 'orderDestroy'])->name('order.destroy');
+    Route::get('order-done/{id}', [PosController::class, 'orderDone'])->name('order.done');
+
 });

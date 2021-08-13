@@ -107,17 +107,15 @@ class CartController extends Controller
             $odata['quantity']  =$content->qty;
             $odata['unitcost']  =$content->price;
             $odata['total']     =$content->total;
-
             $insert= OrderDetail::create($odata);
         }
-
         if($insert) {
             $notification = [
             'message'   =>'Invoice Created Successfully | Please deliver the product and accept status',
             'alert-type'=> 'success'
             ];
             Cart::destroy();
-            return redirect()->route('pos.index')->with($notification);
+            return redirect()->route('pending.order')->with($notification);
         }else {
             $notification = [
                 'message'   =>'Something goes wrong!',
